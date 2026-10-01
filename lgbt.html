@@ -1,0 +1,1235 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cinema LGBTQIA+ | Mundo do Cinema</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080b0d;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* HEADER */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: rgba(8, 11, 13, .96);
+            border-bottom: 1px solid rgba(212, 175, 55, .35);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        nav a:hover,
+        nav a.ativo {
+            color: #d4af37;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            padding: 120px 10% 70px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.45), rgba(0,0,0,.85)),
+                url("../images/lgbt-banner.jpg") center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .categoria {
+            color: #d4af37;
+            font-size: 15px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(48px, 8vw, 100px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 650px;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #b00000;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: #d4af37;
+            color: #080b0d;
+        }
+
+        /* SEÇÕES */
+
+        section {
+            padding: 90px 10%;
+        }
+
+        .titulo-secao {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            font-size: 38px;
+            margin-bottom: 18px;
+        }
+
+        .subtitulo {
+            color: #a7a7a7;
+            line-height: 1.8;
+            max-width: 850px;
+            margin-bottom: 45px;
+        }
+
+        /* HISTÓRIA */
+
+        .historia {
+            background: #0d1113;
+        }
+
+        .historia-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .historia img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, .5);
+        }
+
+        .historia p {
+            color: #bdbdbd;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        /* CARACTERÍSTICAS */
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .info-card {
+            background: #111719;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,.06);
+            transition: .3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212,175,55,.5);
+        }
+
+        .numero {
+            color: #b00000;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .info-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .info-card p {
+            color: #a7a7a7;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* LINHA DO TEMPO */
+
+        .timeline {
+            background: #0d1113;
+        }
+
+        .linha {
+            border-left: 2px solid #b00000;
+            padding-left: 35px;
+        }
+
+        .timeline-item {
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #d4af37;
+            border-radius: 50%;
+            left: -42px;
+            top: 5px;
+        }
+
+        .timeline-item h3 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            color: #aaa;
+            line-height: 1.8;
+        }
+
+        /* FILMES */
+
+        .filmes {
+            background: #080b0d;
+        }
+
+        .cards-filmes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .filme-card {
+            background: #111719;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.06);
+            transition: .3s;
+        }
+
+        .filme-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212,175,55,.5);
+        }
+
+        .filme-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .filme-info {
+            padding: 20px;
+        }
+
+        .filme-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .filme-info p {
+            color: #a7a7a7;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .nota {
+            color: #d4af37;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* DIRETORES */
+
+        .diretores {
+            background: #080b0d;
+        }
+
+        .diretor-card {
+            background: #111719;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.06);
+            transition: .3s;
+            text-align: center;
+        }
+
+        .diretor-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212,175,55,.5);
+        }
+
+        .diretor-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .diretor-card div {
+            padding: 20px;
+        }
+
+        .diretor-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .diretor-card p {
+            color: #a7a7a7;
+            font-size: 13px;
+        }
+
+        /* TRAILER */
+
+        .trailer {
+            background: #0d1113;
+            text-align: center;
+        }
+
+        .trailer iframe {
+            width: 80%;
+            height: 450px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* CURIOSIDADES */
+
+        .curiosidades {
+            background: #080b0d;
+        }
+
+        /* FAQ */
+
+        .faq {
+            background: #0d1113;
+        }
+
+        .faq-item {
+            background: #111719;
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 10px;
+            padding: 25px 30px;
+            margin-bottom: 15px;
+        }
+
+        .faq-item h3 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .faq-item p {
+            color: #a7a7a7;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #050708;
+            border-top: 1px solid rgba(212,175,55,.35);
+            padding: 60px 10%;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        footer p,
+        footer a {
+            color: #888;
+            font-size: 13px;
+            line-height: 1.8;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #d4af37;
+        }
+
+        /* RESPONSIVO */
+
+        @media (max-width: 1100px) {
+
+            .grid-4,
+            .cards-filmes {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+
+            nav {
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 800px) {
+
+            header {
+                height: auto;
+                min-height: 80px;
+                flex-direction: column;
+                justify-content: center;
+                gap: 15px;
+                padding: 15px 7%;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 150px 7% 80px;
+            }
+
+            .historia-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trailer iframe {
+                width: 100%;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .grid-4,
+            .cards-filmes,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .titulo-secao {
+                font-size: 30px;
+            }
+
+            .filme-card img {
+                height: 400px;
+            }
+
+            .historia img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+            MUNDO<span>DO CINEMA</span>
+        </div>
+
+        <nav>
+            <a href="../index.html">Início</a>
+            <a href="acao.html">Ação</a>
+            <a href="comedia.html">Comédia</a>
+            <a href="romance.html">Romance</a>
+            <a href="terror.html">Terror</a>
+            <a href="ficcao.html">Ficção</a>
+            <a href="suspense.html">Suspense</a>
+            <a href="drama.html">Drama</a>
+            <a href="crime.html">Crime</a>
+            <a href="aventura.html">Aventura</a>
+            <a href="lgbt.html" class="ativo">LGBTQIA+</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="categoria">
+                CINEMA E REPRESENTATIVIDADE
+            </div>
+
+            <h1>LGBTQIA+</h1>
+
+            <p>
+                Histórias que apresentam diferentes experiências, identidades
+                e relacionamentos LGBTQIA+, destacando personagens e narrativas
+                que ganharam espaço e reconhecimento no cinema.
+            </p>
+
+            <a href="#historia" class="btn">
+                Explorar o gênero
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- HISTÓRIA -->
+
+    <section class="historia" id="historia">
+
+        <h2 class="titulo-secao">
+            História da Representatividade
+        </h2>
+
+        <p class="subtitulo">
+            A presença de personagens e histórias LGBTQIA+ no cinema passou
+            por diferentes momentos ao longo da história.
+        </p>
+
+        <div class="historia-grid">
+
+            <img src="https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2023/06/series-protagonismo-lbtqia-para-ver.jpg" alt="História do cinema LGBTQIA+">
+
+            <div>
+
+                <p>
+                    A representação LGBTQIA+ existe no cinema desde os seus
+                    primeiros períodos, embora muitas produções antigas
+                    apresentassem personagens de maneira limitada ou por meio
+                    de estereótipos.
+                </p>
+
+                <p>
+                    Com o passar das décadas, cineastas e atores passaram a
+                    criar histórias com personagens LGBTQIA+ mais complexos,
+                    abordando relacionamentos, identidade, família e
+                    experiências sociais.
+                </p>
+
+                <p>
+                    Atualmente, diferentes tipos de histórias LGBTQIA+ podem
+                    ser encontrados em produções independentes e grandes
+                    produções cinematográficas.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CARACTERÍSTICAS -->
+
+    <section>
+
+        <h2 class="titulo-secao">
+            Temas e Características
+        </h2>
+
+        <p class="subtitulo">
+            Alguns temas frequentemente presentes em histórias
+            cinematográficas LGBTQIA+.
+        </p>
+
+        <div class="grid-4">
+
+            <div class="info-card">
+
+                <div class="numero">01</div>
+
+                <h3>Identidade</h3>
+
+                <p>
+                    Histórias sobre autoconhecimento, identidade e diferentes
+                    experiências pessoais.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="numero">02</div>
+
+                <h3>Relacionamentos</h3>
+
+                <p>
+                    Narrativas que apresentam relacionamentos afetivos,
+                    amizades e vínculos familiares.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="numero">03</div>
+
+                <h3>Representação</h3>
+
+                <p>
+                    Personagens LGBTQIA+ ocupando diferentes papéis e
+                    participando de diversos tipos de histórias.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="numero">04</div>
+
+                <h3>Diversidade</h3>
+
+                <p>
+                    Diferentes identidades, experiências e perspectivas
+                    podem ser apresentadas no cinema.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LINHA DO TEMPO -->
+
+    <section class="timeline">
+
+        <h2 class="titulo-secao">
+            Evolução da Representatividade
+        </h2>
+
+        <p class="subtitulo">
+            Alguns períodos importantes para a presença LGBTQIA+ no cinema.
+        </p>
+
+        <div class="linha">
+
+            <div class="timeline-item">
+
+                <h3>1890 – 1930</h3>
+
+                <p>
+                    Os primeiros anos do cinema apresentam representações
+                    variadas, muitas vezes utilizando códigos e personagens
+                    indiretos.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>1940 – 1960</h3>
+
+                <p>
+                    A representação permanece limitada em muitas produções,
+                    enquanto cineastas encontram diferentes formas de abordar
+                    personagens LGBTQIA+.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>1970 – 1990</h3>
+
+                <p>
+                    O crescimento do cinema independente contribui para o
+                    surgimento de mais histórias centradas em personagens
+                    LGBTQIA+.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>2000 – Hoje</h3>
+
+                <p>
+                    Produções de diferentes países e gêneros passam a apresentar
+                    uma variedade maior de personagens e experiências LGBTQIA+.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FILMES CLÁSSICOS -->
+
+    <section class="filmes">
+
+        <h2 class="titulo-secao">
+            Filmes Marcantes
+        </h2>
+
+        <p class="subtitulo">
+            Obras que apresentam personagens e histórias LGBTQIA+ em
+            diferentes períodos do cinema.
+        </p>
+
+        <div class="cards-filmes">
+
+            <div class="filme-card">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUdc9nwN4Y2WF28FB51Z0mRPwLQgx0WdiAeUVRHvz_mkL7HI7FMF9YE6I&s=10"
+                     alt="heartstopper">
+
+                <div class="filme-info">
+
+                    <h3>heartstopper</h3>
+
+                    <p>
+                         O filme mostra Nick prestes a ir para a universidade e Charlie vivendo seu último ano de colégio de forma mais independente.
+                    </p>
+
+                    <div class="nota">★ 7.7/10</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="filme-card">
+
+                <img src="https://m.media-amazon.com/images/M/MV5BNjA2MjE5ZGUtNTFmNS00ZWEyLWI4ZTAtMjA2NTU3MmJiODRiXkEyXkFqcGc@._V1_.jpg"
+                     alt="Quinze Dias ">
+
+                <div class="filme-info">
+
+                    <h3>Quinze Dias</h3>
+
+                    <p>
+                       acompanha Felipe, um adolescente gordo e inseguro que planejava passar as férias escolares isolado em casa assistindo a séries e filmes.
+                    </p>
+
+                    <div class="nota">★ 7.4/10</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="filme-card">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1PcX65KX5IfMn3_Z2z86--0R-oRMgli3-x9i6giQiuDIFtAEztv45GSo&s=10"
+                     alt="Me Chame Pelo Seu Nome">
+
+                <div class="filme-info">
+
+                    <h3>Me Chame Pelo Seu Nome</h3>
+
+                    <p>
+                       retrata o intenso romance de verão entre Elio Perlman, um jovem de 17 anos, e Oliver, um acadêmico americano de 24 anos que se hospeda na casa da família de Elio.
+                    </p>
+
+                    <div class="nota">★ 7.2/10</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="filme-card">
+
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/b30cd39260a50779298088045ded605ce8c24d12aada836951d17a7bb8d10c4c.jpg"
+                     alt="Pride">
+
+                <div class="filme-info">
+
+                    <h3>Pride</h3>
+
+                    <p>
+                        Uma história que acompanha a aproximação entre um
+                        grupo LGBTQIA+ e uma comunidade de trabalhadores.
+                    </p>
+
+                    <div class="nota">★ 7.8/10</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FILMES MODERNOS -->
+
+    <section>
+
+        <h2 class="titulo-secao">
+            Produções Recentes
+        </h2>
+
+        <p class="subtitulo">
+            Filmes que apresentam diferentes experiências e histórias
+            LGBTQIA+.
+        </p>
+
+        <div class="cards-filmes">
+
+            <div class="filme-card">
+
+                <img src="https://static.wikia.nocookie.net/dublagem/images/7/70/Close_2022.jpg/revision/latest?cb=20240705055131&path-prefix=pt-br"
+                     alt="Close">
+
+                <div class="filme-info">
+
+                    <h3>Close</h3>
+
+                    <p>
+                        Um drama sobre amizade, adolescência e as mudanças
+                        provocadas por situações inesperadas.
+                    </p>
+
+                    <div class="nota">★ 7.8/10</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="filme-card">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMlOTVKmbpan0i6x-eR4iuEHDLdOBGWkTyzTJvmA3ecpZrnptOZGY7SDA&s=10"
+                     alt="Queer">
+
+                <div class="filme-info">
+
+                    <h3>Queer</h3>
+
+                    <p>
+                        Uma narrativa ambientada no México acompanha um
+                        personagem em busca de conexão e pertencimento.
+                    </p>
+
+                    <div class="nota">★ 6.5/10</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="filme-card">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR93VUVoCAAzemKewW0y0UcnbCUu9fLxwo4pkctAo2SkFSCwfvbLrhYxnz2&s=10"
+                     alt="Todos Nós Desconhecidos">
+
+                <div class="filme-info">
+
+                    <h3>Todos Nós Desconhecidos</h3>
+
+                    <p>
+                        Uma história que combina romance, memória e relações
+                        familiares.
+                    </p>
+
+                    <div class="nota">★ 7.7/10</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="filme-card">
+
+                <img src="https://m.media-amazon.com/images/M/MV5BNjMwNThiNGMtODA5YS00NmE0LWJmMjgtM2Q4NDZjMWFiOTVlXkEyXkFqcGc@._V1_.jpg"
+                     alt="Vermelho Branco e Sangue Azul">
+
+                <div class="filme-info">
+
+                    <h3>Vermelho, Branco e Sangue Azul</h3>
+
+                    <p>
+                        Uma comédia romântica sobre o relacionamento entre
+                        dois jovens de contextos diferentes.
+                    </p>
+
+                    <div class="nota">★ 7.0/10</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DIRETORES -->
+
+    <section class="diretores">
+
+        <h2 class="titulo-secao">
+            Diretores Importantes
+        </h2>
+
+        <p class="subtitulo">
+            Cineastas associados a importantes produções com temática
+            LGBTQIA+.
+        </p>
+
+        <div class="grid-4">
+
+            <div class="diretor-card">
+
+                <img src="https://m.media-amazon.com/images/M/MV5BODA2MTczOTY0N15BMl5BanBnXkFtZTcwNTU3NjA4OA@@._V1_.jpg"
+                     alt="Ang Lee">
+
+                <div>
+                    <h3>Ang Lee</h3>
+                    <p>O Segredo de Brokeback Mountain</p>
+                </div>
+
+            </div>
+
+
+            <div class="diretor-card">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkkk8W7e7_xLFErr5nMdjAn-9oc27ij7gpCiq8nZvHsA&s=10"
+                     alt="Barry Jenkins">
+
+                <div>
+                    <h3>Barry Jenkins</h3>
+                    <p>Moonlight</p>
+                </div>
+
+            </div>
+
+
+            <div class="diretor-card">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6YFDFi2MP056rBOLN3nO8ClpxIQN-nJILEuBkc99Ebmu0LI6Kbcosgq8&s=10"
+                     alt="Todd Haynes">
+
+                <div>
+                    <h3>Todd Haynes</h3>
+                    <p>Carol</p>
+                </div>
+
+            </div>
+
+
+            <div class="diretor-card">
+
+                <img src="https://br.web.img2.acsta.net/pictures/15/05/18/15/39/584558.jpg"
+                     alt="Joachim Trier">
+
+                <div>
+                    <h3>Joachim Trier</h3>
+                    <p>Produções de drama contemporâneo</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRAILER -->
+
+    <section class="trailer">
+
+        <h2 class="titulo-secao">
+            Trailer em Destaque
+        </h2>
+
+        <p class="subtitulo">
+            Confira o trailer de uma produção de destaque.
+        </p>
+
+        <iframe
+            src="https://www.youtube.com/embed/9NJj12tJzqc"
+            title="Trailer de Moonlight"
+            allowfullscreen>
+        </iframe>
+
+    </section>
+
+
+    <!-- CURIOSIDADES -->
+
+    <section class="curiosidades">
+
+        <h2 class="titulo-secao">
+            Curiosidades
+        </h2>
+
+        <p class="subtitulo">
+            Alguns fatos sobre a presença LGBTQIA+ na história do cinema.
+        </p>
+
+        <div class="grid-4">
+
+            <div class="info-card">
+
+                <div class="numero">01</div>
+
+                <h3>Cinema Independente</h3>
+
+                <p>
+                    Produções independentes tiveram papel importante na
+                    criação de histórias centradas em personagens LGBTQIA+.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="numero">02</div>
+
+                <h3>Festivais</h3>
+
+                <p>
+                    Festivais de cinema LGBTQIA+ ajudam a divulgar filmes,
+                    diretores e novas produções.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="numero">03</div>
+
+                <h3>Diferentes Gêneros</h3>
+
+                <p>
+                    Histórias LGBTQIA+ podem aparecer em dramas, romances,
+                    comédias, suspense e diversos outros gêneros.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="numero">04</div>
+
+                <h3>Representatividade</h3>
+
+                <p>
+                    A presença de personagens LGBTQIA+ aumentou em diferentes
+                    tipos de produções cinematográficas ao longo do tempo.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+
+    <section class="faq">
+
+        <h2 class="titulo-secao">
+            Perguntas Frequentes
+        </h2>
+
+        <div class="faq-item">
+
+            <h3>O que significa cinema LGBTQIA+?</h3>
+
+            <p>
+                É uma forma de identificar filmes que apresentam personagens,
+                histórias ou temas relacionados às experiências LGBTQIA+.
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h3>Quando começaram as representações LGBTQIA+ no cinema?</h3>
+
+            <p>
+                Elas existem desde os primeiros períodos do cinema, embora
+                a forma de representação tenha mudado bastante ao longo
+                das décadas.
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h3>Esses filmes pertencem apenas ao gênero drama?</h3>
+
+            <p>
+                Não. Histórias LGBTQIA+ podem fazer parte de diversos gêneros,
+                incluindo romance, comédia, suspense, aventura e ficção.
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h3>Por que a representação é um tema importante no cinema?</h3>
+
+            <p>
+                A representação permite que diferentes experiências e
+                perspectivas sejam apresentadas através das histórias
+                cinematográficas.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+            <div>
+
+                <h3>Mundo do Cinema</h3>
+
+                <p>
+                    Um espaço dedicado à história, aos gêneros, aos filmes
+                    e às pessoas que fazem o cinema acontecer.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Gêneros</h3>
+
+                <p><a href="acao.html">Ação</a></p>
+                <p><a href="comedia.html">Comédia</a></p>
+                <p><a href="romance.html">Romance</a></p>
+                <p><a href="terror.html">Terror</a></p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Mais</h3>
+
+                <p><a href="ficcao.html">Ficção</a></p>
+                <p><a href="suspense.html">Suspense</a></p>
+                <p><a href="drama.html">Drama</a></p>
+                <p><a href="crime.html">Crime</a></p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Site</h3>
+
+                <p><a href="../index.html">Início</a></p>
+                <p><a href="aventura.html">Aventura</a></p>
+                <p><a href="lgbt.html">LGBTQIA+</a></p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
+```
